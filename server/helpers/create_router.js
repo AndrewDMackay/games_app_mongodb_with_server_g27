@@ -1,3 +1,4 @@
+
 const express = require('express');
 
 const createRouter = function (collection) {
@@ -9,3 +10,4 @@ const createRouter = function (collection) {
 };
 
 module.exports = createRouter;
+
