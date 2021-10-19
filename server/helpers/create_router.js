@@ -19,6 +19,7 @@ const createRouter = function (collection) {
     })
   })
 
+
   // SHOW, get one game back via its ID, and serve as JSON..
 
   router.get('/:id', (req, res) => {
@@ -30,6 +31,17 @@ const createRouter = function (collection) {
       res.status(500)
       res.json({status: 500, error: err})
     })  
+  })
+
+
+// CREATE, Post new game, and persist to the database..
+
+// Note.. To parse the body requires, 'app.use(express.json());' in the head of your server..
+
+
+  router.post('/', (req, res) => {
+    const newData = req.body
+    collection.insertOne(newData)
   })
 
 
