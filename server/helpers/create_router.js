@@ -56,7 +56,7 @@ const createRouter = function (collection) {
   })
 
 
-// DESTROY, delete a game via it's ID..
+// DESTROY, delete a game via its ID..
 
   router.delete('/:id', (req, res) => {
     const id = req.params.id
@@ -72,6 +72,16 @@ const createRouter = function (collection) {
   })
 
 
+  // UPDATE, update a game that already exists via its ID..
+
+  router.put('/:id', (req, res) => {
+    const id = req.params.id
+    const updatedData = req.body
+    collection.updateOne(
+      {_id: ObjectID(id)},
+      {$set: updatedData}
+    )
+  })
 
 
   return router;
