@@ -42,7 +42,14 @@ const createRouter = function (collection) {
   router.post('/', (req, res) => {
     const newData = req.body
     collection.insertOne(newData)
+    .then((result) => {
+      console.log(result)
+      res.json(result.ops[0])
+    })
   })
+
+
+  
 
 
   return router;
